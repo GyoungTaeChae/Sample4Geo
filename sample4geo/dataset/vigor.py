@@ -8,7 +8,11 @@ import torch
 from tqdm import tqdm
 from collections import defaultdict
 import time
- 
+import logging
+logging.basicConfig(level=logging.DEBUG)
+
+
+
 class VigorDatasetTrain(Dataset):
     
     def __init__(self,
@@ -92,11 +96,16 @@ class VigorDatasetTrain(Dataset):
         
         self.samples = copy.deepcopy(self.pairs)
             
+import logging
+logging.basicConfig(level=logging.DEBUG)
 
     def __getitem__(self, index):
         
         idx_ground, idx_sat = self.samples[index]
-        
+        # 로깅 추가
+        logging.debug("Loading ground image from: %s", self.idx2ground_path[idx_ground])
+        logging.debug("Loading satellite image from: %s", self.idx2sat_path[idx_sat])
+    
         # load query -> ground image
         query_img = cv2.imread(self.idx2ground_path[idx_ground])
         query_img = cv2.cvtColor(query_img, cv2.COLOR_BGR2RGB)
