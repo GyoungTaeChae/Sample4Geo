@@ -34,7 +34,7 @@ class Configuration:
     epochs: int = 40
     batch_size: int = 128        # keep in mind real_batch_size = 2 * batch_size
     verbose: bool = True
-    gpu_ids: tuple = (0,1,2,3,4,5,6,7)   # GPU ids for training
+    gpu_ids: tuple = (0)   # GPU ids for training
     
     
     # Similarity Sampling
