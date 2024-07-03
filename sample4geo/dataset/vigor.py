@@ -96,8 +96,7 @@ class VigorDatasetTrain(Dataset):
         
         self.samples = copy.deepcopy(self.pairs)
             
-import logging
-logging.basicConfig(level=logging.DEBUG)
+
 
     def __getitem__(self, index):
         
