@@ -23,9 +23,9 @@ from sample4geo.model import TimmModel
 class Configuration:
     
     # Model
-    model: str = 'convnext_base.fb_in22k_ft_in1k_384' 
-    model: str = 'vit_base_patch14_dinov2.lvd142m' 
-    model: str = 'vit_giant_patch14_dinov2.lvd142m'
+    # model: str = 'convnext_base.fb_in22k_ft_in1k_384' 
+    # model: str = 'vit_base_patch14_dinov2.lvd142m' 
+    # model: str = 'vit_giant_patch14_dinov2.lvd142m'
     model: str = 'vit_large_patch14_dinov2.lvd142m'
  
 
@@ -137,9 +137,9 @@ if __name__ == '__main__':
 
 
     # print(model)
-    a= torch.randn([3,3,384,384])
-    b = model(a)
-    print(b.shape)
+    # a= torch.randn([3,3,384,384])
+    # b = model(a)
+    # print(b.shape)
     data_config = model.get_config()
     print(data_config)
     mean = data_config["mean"]
@@ -151,6 +151,7 @@ if __name__ == '__main__':
     new_width = config.img_size * 2    
     new_hight = round((224 / 1232) * new_width)
     img_size_ground = (new_hight, new_width)
+    img_size_ground = (384, 384)
     
     # Activate gradient checkpointing
     if config.grad_checkpointing:
